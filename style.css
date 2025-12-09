@@ -2,10 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 :root {
-    /* La couleur Bleu Électrique */
     --neon-blue: #2979ff;
     --bg-dark: #0a0a0a;
     --bg-darker: #050505;
+}
+
+/* OPTIMISATION SCROLL : On l'applique uniquement à la racine */
+html {
+    scroll-behavior: smooth;
 }
 
 * {
@@ -13,18 +17,36 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+    /* On cache le curseur système pour afficher le nôtre */
+    cursor: none;
 }
 
 body {
     background-color: var(--bg-dark);
     color: #e0e0e0;
     line-height: 1.6;
-    /* AJOUT MODERNE : Une texture de "bruit" subtile pour la profondeur */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    overflow-x: hidden;
+    /* RETRAIT DU "BRUIT" SVG POUR LA PERFORMANCE */
+    /* Remplacement par un fond sombre uni pour une fluidité max */
 }
 
-/* NAVIGATION */
+/* --- CURSEUR BLEU --- */
+.cursor-glow {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(41, 121, 255, 0.8), inset 0 0 10px rgba(41, 121, 255, 0.3);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: transform 0.08s ease-out; /* Un poil plus fluide */
+    will-change: transform; /* Aide le navigateur à optimiser le rendu */
+}
+
+/* --- NAVIGATION --- */
 .navbar {
     position: fixed;
     top: 0;
@@ -33,10 +55,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    /* Fond un peu plus flouté et sombre */
-    background: rgba(5, 5, 5, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(41, 121, 255, 0.08);
+    background: rgba(10, 10, 10, 0.90); /* Un peu moins transparent pour aider le GPU */
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(41, 121, 255, 0.1);
     z-index: 1000;
 }
 
@@ -45,7 +66,9 @@ body {
     font-weight: 700;
     color: var(--neon-blue);
     font-family: 'Space Mono', monospace;
-    text-shadow: 0 0 15px rgba(41, 121, 255, 0.5);
+    text-shadow: 0 0 10px rgba(41, 121, 255, 0.4);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -54,48 +77,41 @@ body {
 }
 
 .nav-links li {
-    margin-left: 35px;
+    margin-left: 30px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #ccc;
+    color: #fff;
     font-weight: 500;
     transition: 0.3s;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     position: relative;
+    cursor: pointer;
 }
 
-/* Petit point lumineux sous le lien actif au lieu du changement de couleur simple */
-.nav-links a.active::after, .nav-links a:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background-color: var(--neon-blue);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--neon-blue);
-}
 .nav-links a:hover, .nav-links a.active {
-    color: #fff;
+    color: var(--neon-blue);
+    text-shadow: 0 0 15px rgba(41, 121, 255, 0.5);
+}
+
+/* RESTAURATION DU CURSEUR POINTEUR */
+a, button, .btn {
+    cursor: pointer;
 }
 
 
-/* HERO SECTION */
+/* --- HERO SECTION --- */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
-    /* Dégradé plus profond avec un point de lumière central subtil */
-    background: radial-gradient(circle at 30% 50%, rgba(41, 121, 255, 0.08) 0%, transparent 50%),
+    /* On garde le dégradé ici, c'est suffisant pour le look */
+    background: radial-gradient(circle at 30% 50%, rgba(41, 121, 255, 0.06) 0%, transparent 60%),
     radial-gradient(circle at top right, #111a2e 0%, var(--bg-dark) 100%);
     position: relative;
-    overflow: hidden;
 }
 
 .hero-content {
@@ -116,15 +132,13 @@ body {
     box-shadow: 0 0 20px rgba(41, 121, 255, 0.1) inset;
 }
 
-/* NOM HACKER PLUS IMPOSANT */
 #hacker-name {
     font-family: 'Space Mono', monospace;
-    font-size: 4.5rem; /* Plus grand */
+    font-size: 4.5rem;
     line-height: 1;
-    color: #fff; /* Blanc pour le contraste principal */
+    color: #fff;
     text-transform: uppercase;
     margin: 15px 0 25px 0;
-    /* Lueur bleue derrière le texte blanc */
     text-shadow: 0 0 30px rgba(41, 121, 255, 0.6);
     cursor: pointer;
 }
@@ -147,10 +161,9 @@ body {
     color: #a0a0a0;
     font-size: 1.1rem;
     max-width: 500px;
-    line-height: 1.8;
 }
 
-/* --- BOUTONS MODERNISÉS & ANIMATION AU CLIC --- */
+/* BOUTONS */
 .buttons {
     display: flex;
     gap: 25px;
@@ -161,28 +174,24 @@ body {
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    /* Transition plus rapide pour le clic */
     transition: all 0.2s ease;
     font-family: 'Space Mono', monospace;
     font-size: 0.95rem;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
-/* L'EFFET "CLIC" (ACTIVE STATE) */
 .btn:active {
-    /* Le bouton rétrécit légèrement et rapidement */
     transform: scale(0.97) translateY(2px);
-    /* L'ombre se réduit pour donner l'impression qu'il s'enfonce */
     box-shadow: 0 0 5px rgba(41, 121, 255, 0.2) !important;
-    /* Transition très rapide pour le retour tactile */
     transition: 0.05s;
 }
 
 .btn-primary {
     background-color: var(--neon-blue);
     border: 2px solid var(--neon-blue);
-    color: #fff; /* Texte blanc */
+    color: #fff;
     box-shadow: 0 0 20px rgba(41, 121, 255, 0.3);
 }
 
@@ -207,7 +216,7 @@ body {
     box-shadow: 0 0 15px rgba(41, 121, 255, 0.2);
 }
 
-/* ANIMATION PARTIE DROITE */
+/* ANIMATION DROITE */
 .hero-visual {
     position: relative;
     width: 450px;
@@ -215,7 +224,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Ajout d'un léger flottement global */
     animation: float 6s ease-in-out infinite;
 }
 
@@ -256,7 +264,6 @@ body {
     animation: pulse 4s ease-in-out infinite;
 }
 
-/* NOUVELLE ANIMATION DE FLOTTEMENT */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
@@ -275,7 +282,6 @@ body {
 .delay-4 { animation-delay: 0.6s; }
 .delay-5 { animation-delay: 0.8s; }
 
-/* MOBILE */
 @media (max-width: 900px) {
     .hero {
         flex-direction: column;
@@ -288,4 +294,7 @@ body {
     .buttons { justify-content: center; }
     .hero-visual { width: 320px; height: 320px; }
     .navbar { padding: 15px 20px; }
+
+    * { cursor: auto; }
+    .cursor-glow { display: none; }
 }
