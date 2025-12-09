@@ -1,9 +1,10 @@
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%&(=+<>";
 
-/* --- EFFET MATRIX SUR LE NOM --- */
 const hackerText = document.querySelector("#hacker-name");
 
 const runHackerEffect = () => {
+    if(!hackerText) return; // Sécurité si l'élément n'existe pas
+
     let iteration = 0;
     clearInterval(hackerText.dataset.interval);
 
@@ -26,19 +27,25 @@ const runHackerEffect = () => {
     }, 30);
 }
 
+// Lancer l'effet au chargement
 window.onload = () => {
     setTimeout(runHackerEffect, 500);
 };
 
+// RELANCER l'effet au survol de la souris (C'est plus fun !)
+hackerText.onmouseover = event => {
+    runHackerEffect();
+};
 
 /* --- CURSEUR SUIVEUR --- */
 const cursor = document.querySelector('.cursor-glow');
 
 document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
+    if(cursor) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    }
 });
-
 
 /* --- NAVIGATION ACTIVE AU SCROLL --- */
 const sections = document.querySelectorAll("section");
@@ -50,8 +57,6 @@ window.onscroll = () => {
     sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-
-        // Si on a scrollé jusqu'à ce que la section soit bien visible (un tiers de l'écran)
         if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
             current = section.getAttribute("id");
         }
