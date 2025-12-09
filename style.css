@@ -1,20 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth; /* INDISPENSABLE pour l'effet One Page */
+    scroll-behavior: smooth;
 }
 
 body {
-    color: #333;
+    background-color: #0a0a0a; /* Fond NOIR */
+    color: #e0e0e0; /* Texte gris clair/blanc */
     line-height: 1.6;
 }
 
-/* NAVIGATION FIXE */
+/* NAVIGATION SOMBRE */
 .navbar {
     position: fixed;
     top: 0;
@@ -23,15 +24,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background: rgba(255, 255, 255, 0.95); /* Légèrement transparent */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: rgba(10, 10, 10, 0.95); /* Fond noir transparent */
+    border-bottom: 1px solid #333; /* Petite ligne grise */
     z-index: 1000;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2c3e50;
+    color: #0aff0a; /* Logo en vert hacker */
+    font-family: 'Space Mono', monospace;
 }
 
 .nav-links {
@@ -45,24 +47,24 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #fff; /* Liens blancs */
     font-weight: 500;
     transition: 0.3s;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: #007bff; /* Bleu principal */
+    color: #0aff0a; /* Vert au survol */
 }
 
-/* SECTION ACCUEIL (HERO) */
+/* SECTION ACCUEIL (HERO) DARK */
 .hero {
-    height: 100vh; /* Prend 100% de la hauteur de l'écran */
+    height: 100vh;
     display: flex;
-    align-items: center; /* Centre verticalement */
-    justify-content: space-between; /* Espace le texte et l'image */
+    align-items: center;
+    justify-content: space-between;
     padding: 0 10%;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Petit dégradé sympa */
-    margin-top: 0;
+    /* Fond noir avec un léger dégradé très sombre pour la profondeur */
+    background: radial-gradient(circle at top right, #1a1a1a 0%, #0a0a0a 100%);
 }
 
 .hero-content {
@@ -70,37 +72,47 @@ body {
 }
 
 .hello {
-    font-size: 1.2rem;
-    color: #007bff;
-    font-weight: 600;
-    margin-bottom: 10px;
-    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 1.1rem;
+    color: #0aff0a; /* Vert */
+    background-color: rgba(10, 255, 10, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 1px solid rgba(10, 255, 10, 0.3);
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #2c3e50;
+/* NOM HACKER */
+#hacker-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 3.5rem;
+    color: #0aff0a;
+    text-transform: uppercase;
+    margin: 10px 0;
+    text-shadow: 0 0 15px rgba(10, 255, 10, 0.6); /* Effet néon */
+    cursor: pointer;
 }
 
 .hero h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
     font-weight: 400;
+    color: #fff;
 }
 
 .highlight {
-    color: #007bff;
+    color: #0aff0a;
     font-weight: 700;
 }
 
 .hero p {
     margin-bottom: 30px;
-    color: #555;
+    color: #aaa; /* Gris un peu plus foncé pour le texte secondaire */
     font-size: 1.1rem;
 }
 
-/* BOUTONS */
+/* BOUTONS DARK */
 .buttons {
     display: flex;
     gap: 15px;
@@ -108,158 +120,47 @@ body {
 
 .btn {
     padding: 12px 30px;
-    border-radius: 5px;
+    border-radius: 4px; /* Plus carré pour faire tech */
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
+    font-family: 'Space Mono', monospace; /* Police code pour les boutons aussi */
 }
 
 .btn-primary {
-    background-color: #007bff;
-    color: white;
+    background-color: transparent;
+    border: 2px solid #0aff0a;
+    color: #0aff0a;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #0aff0a;
+    color: #000;
+    box-shadow: 0 0 20px rgba(10, 255, 10, 0.4);
 }
 
 .btn-secondary {
-    border: 2px solid #007bff;
-    color: #007bff;
+    border: 2px solid #fff;
+    color: #fff;
 }
 
 .btn-secondary:hover {
-    background-color: #007bff;
-    color: white;
+    background-color: #fff;
+    color: #000;
 }
 
-/* Placeholder Image (carré gris pour l'instant) */
-.placeholder-img {
-    width: 350px;
-    height: 350px;
-    background-color: #ddd;
-    border-radius: 50%; /* Cercle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    border: 5px solid white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-/* L'IMAGE DE PROFIL (Rond parfait) */
-.profile-pic {
-    width: 300px; /* Taille comme sur tamdaz */
-    height: 300px;
-    border-radius: 50%; /* Rend l'image ronde */
-    object-fit: cover; /* Si l'image n'est pas carrée, ça évite qu'elle soit écrasée */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Belle ombre portée */
-    border: 5px solid white; /* Bordure blanche propre */
-
-    /* L'ANIMATION */
-    /* On lance l'animation "popIn" qui dure 0.8 secondes */
-    /* cubic-bezier(...) c'est la mathématique qui crée l'effet "rebond" */
-    animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-
-    /* Point de départ avant l'animation (invisible et minuscule) */
-    opacity: 0;
-    transform: scale(0);
-}
-
-/* Style temporaire si tu n'as pas encore de photo (le rond gris) */
-.profile-pic.placeholder {
-    background: linear-gradient(45deg, #007bff, #6c5ce7); /* Dégradé sympa */
-}
-
-/* DÉFINITION DE L'ANIMATION (KEYFRAMES) */
-@keyframes popIn {
-    0% {
-        opacity: 0;
-        transform: scale(0) rotate(-15deg); /* Départ : invisible, petit et un peu tourné */
-    }
-    70% {
-        opacity: 1;
-        /* On zoome un peu trop gros (1.1) pour faire l'effet d'élan */
-        transform: scale(1.1) rotate(0deg);
-    }
-    100% {
-        /* On revient à la taille normale */
-        transform: scale(1) rotate(0deg);
-    }
-}
-
-/* Bonus : Petit effet quand on passe la souris dessus */
-.profile-pic:hover {
-    transform: scale(1.05); /* Grossit légèrement */
-    box-shadow: 0 20px 40px rgba(0,123,255,0.4); /* L'ombre devient bleue */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-/* --- STYLE DU TEXTE (Look "Développeur") --- */
-
-/* On applique une police "code" aux titres pour faire comme sur tamdaz */
-.hero-content .hello,
-.hero-content h1,
-.hero-content h2 {
-    font-family: 'Courier New', Courier, monospace; /* Police type code */
-}
-
-.hero h1 {
-    font-size: 3.5rem; /* On grossit le nom */
-    font-weight: 700;
-    color: #2c3e50;
-    margin: 10px 0;
-    line-height: 1.1;
-}
-
-.hero .hello {
-    font-size: 1.1rem;
-    color: #007bff;
-    background-color: rgba(0, 123, 255, 0.1); /* Petit fond bleu léger */
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block; /* Nécessaire pour le padding */
-}
-
-/* --- L'ANIMATION EN CASCADE --- */
-
-/* 1. L'état de départ : invisible et un peu plus bas */
+/* ANIMATIONS TEXTE */
 .animate-text {
     opacity: 0;
-    transform: translateY(30px); /* Décalé de 30px vers le bas */
-
-    /* On applique l'animation "fadeInUp" qui dure 0.8s */
+    transform: translateY(30px);
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* 2. Les délais (C'est ça qui crée l'effet de suite) */
-.delay-1 { animation-delay: 0.2s; } /* Bonjour arrive vite */
-.delay-2 { animation-delay: 0.4s; } /* Le Nom arrive après */
-.delay-3 { animation-delay: 0.6s; } /* Le métier */
-.delay-4 { animation-delay: 0.8s; } /* La description */
-.delay-5 { animation-delay: 1.0s; } /* Les boutons en dernier */
+.delay-1 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
 
-/* 3. La définition de l'animation */
 @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0); /* Revient à sa place d'origine */
-    }
-}
-
-/* Import d'une police "Geek" (Space Mono) depuis Google Fonts */
-
-#hacker-name {
-    font-family: 'Space Mono', monospace; /* Police type terminal */
-    font-size: 3.5rem;
-    color: #0aff0a; /* Le Vert Matrix / Terminal */
-    text-transform: uppercase;
-    margin: 10px 0;
-
-    /* Petit effet d'ombre lumineuse (Glow) */
-    text-shadow: 0 0 10px rgba(10, 255, 10, 0.5);
-
-    /* Pour éviter que le curseur change */
-    cursor: default;
+    to { opacity: 1; transform: translateY(0); }
 }
