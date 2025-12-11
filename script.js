@@ -27,10 +27,10 @@ const runHackerEffect = () => {
     }, 30);
 }
 
-// Lancer l'effet au chargement
-window.onload = () => {
+// Lancer l'effet dès que le DOM est prêt
+document.addEventListener('DOMContentLoaded', () => {
     setTimeout(runHackerEffect, 500);
-};
+});
 
 // RELANCER l'effet au survol de la souris (C'est plus fun !)
 hackerText.onmouseover = event => {

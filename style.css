@@ -446,3 +446,33 @@ a, button, .btn {
     .about-badges { justify-content: center; }
     .bts-options { flex-direction: column; }
 }
+
+/* LIGNE MISE EN AVANT (E4) */
+.cyber-table tr.highlight-row td {
+    background: rgba(41, 121, 255, 0.15); /* Fond bleu léger */
+    color: #fff;
+    border-top: 1px solid var(--neon-blue);
+    border-bottom: 1px solid var(--neon-blue);
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(41, 121, 255, 0.4);
+}
+
+/* Centrage de la section A Propos maintenant que le carré est parti */
+.about-container {
+    justify-content: center; /* Centre le contenu horizontalement */
+}
+
+.about-text {
+    text-align: center;      /* Centre le texte */
+    max-width: 800px;        /* Évite que les lignes soient trop longues à lire */
+    margin: 0 auto;          /* Centre le bloc lui-même */
+}
+
+.about-badges {
+    justify-content: center; /* Centre les badges */
+}
+
+.section-title::after {
+    left: 50%;               /* Centre le soulignement du titre */
+    transform: translateX(-50%);
+}
