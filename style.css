@@ -359,7 +359,7 @@ a, button, .btn {
     background-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);
 }
 
-/* SOUS-TITRE (Style Corrigé : Poppins) */
+/* SOUS-TITRE */
 .subtitle {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -447,9 +447,8 @@ a, button, .btn {
     .bts-options { flex-direction: column; }
 }
 
-/* LIGNE MISE EN AVANT (E4) */
 .cyber-table tr.highlight-row td {
-    background: rgba(41, 121, 255, 0.15); /* Fond bleu léger */
+    background: rgba(41, 121, 255, 0.15);
     color: #fff;
     border-top: 1px solid var(--neon-blue);
     border-bottom: 1px solid var(--neon-blue);
@@ -457,42 +456,134 @@ a, button, .btn {
     text-shadow: 0 0 10px rgba(41, 121, 255, 0.4);
 }
 
-/* Centrage de la section A Propos maintenant que le carré est parti */
 .about-container {
-    justify-content: center; /* Centre le contenu horizontalement */
+    justify-content: center;
 }
 
 .about-text {
-    text-align: center;      /* Centre le texte */
-    max-width: 800px;        /* Évite que les lignes soient trop longues à lire */
-    margin: 0 auto;          /* Centre le bloc lui-même */
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-badges {
-    justify-content: center; /* Centre les badges */
+    justify-content: center;
 }
 
 .section-title::after {
-    left: 50%;               /* Centre le soulignement du titre */
+    left: 50%;
     transform: translateX(-50%);
 }
 
-/* --- AJOUTS RÉCENTS --- */
-
-/* 1. Centrer le bouton dans la section À propos */
 .about-text .buttons {
-    justify-content: center; /* Centre les éléments flex horizontalement */
-    margin-top: 20px;       /* Ajoute un peu d'espace au-dessus */
+    justify-content: center;
+    margin-top: 20px;
 }
 
-/* 2. Style pour le bouton icône (LinkedIn) */
 .btn-icon {
-    padding: 0;             /* Réinitialise le padding standard */
-    width: 54px;            /* Largeur fixe */
-    height: 54px;           /* Hauteur égale à la largeur pour un carré */
+    padding: 0;
+    width: 54px;
+    height: 54px;
     display: flex;
-    align-items: center;    /* Centre l'icône verticalement */
-    justify-content: center;/* Centre l'icône horizontalement */
-    font-size: 1.2rem;      /* Taille de l'icône */
-    border-radius: 6px;     /* Même arrondi que les autres boutons */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 6px;
+}
+
+/* --- SECTION TIMELINE (GIT LOG) - AJOUTÉ --- */
+
+:root {
+    --neon-green: #10B981;
+}
+
+.tz-big-title {
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #fff;
+}
+
+.tz-timelines-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto 80px auto; /* Marge en bas ajoutée pour espacer du reste */
+}
+
+.tz-code-block {
+    background: #0e0e0e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.tz-code-block b {
+    color: var(--neon-green);
+}
+
+.tz-timeline-item {
+    display: flex;
+    gap: 15px;
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.tz-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+    flex-shrink: 0;
+}
+
+.tz-line {
+    width: 2px;
+    background-color: var(--neon-green);
+    flex-grow: 1;
+    min-height: 100%;
+}
+
+.tz-dot {
+    width: 14px;
+    height: 14px;
+    background-color: var(--bg-dark);
+    border: 3px solid #ecfdf5;
+    border-radius: 50%;
+    margin: 0;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.tz-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tz-small-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 0.95rem;
+    font-family: 'Space Mono', monospace;
+}
+
+.tz-desc {
+    color: #b0b0b0;
+    font-style: italic;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+    .tz-timelines-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
