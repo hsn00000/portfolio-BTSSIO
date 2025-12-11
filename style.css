@@ -476,3 +476,23 @@ a, button, .btn {
     left: 50%;               /* Centre le soulignement du titre */
     transform: translateX(-50%);
 }
+
+/* --- AJOUTS RÉCENTS --- */
+
+/* 1. Centrer le bouton dans la section À propos */
+.about-text .buttons {
+    justify-content: center; /* Centre les éléments flex horizontalement */
+    margin-top: 20px;       /* Ajoute un peu d'espace au-dessus */
+}
+
+/* 2. Style pour le bouton icône (LinkedIn) */
+.btn-icon {
+    padding: 0;             /* Réinitialise le padding standard */
+    width: 54px;            /* Largeur fixe */
+    height: 54px;           /* Hauteur égale à la largeur pour un carré */
+    display: flex;
+    align-items: center;    /* Centre l'icône verticalement */
+    justify-content: center;/* Centre l'icône horizontalement */
+    font-size: 1.2rem;      /* Taille de l'icône */
+    border-radius: 6px;     /* Même arrondi que les autres boutons */
+}
