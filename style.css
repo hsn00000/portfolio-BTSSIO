@@ -310,7 +310,7 @@ a, button, .btn {
 .about-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Centralisation des éléments */
     gap: 80px;
     max-width: 1200px;
     width: 100%;
@@ -319,6 +319,7 @@ a, button, .btn {
 
 .about-visual { flex: 1; display: flex; justify-content: center; min-width: 300px; }
 
+/* Styles pour l'image (commentés car l'image n'est pas dans le HTML actuel, mais gardés en cas de réutilisation)
 .profile-frame {
     position: relative;
     width: 350px;
@@ -345,8 +346,15 @@ a, button, .btn {
 }
 .corner-top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
 .corner-bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+*/
 
-.about-text { flex: 1.2; min-width: 300px; }
+.about-text {
+    flex: 1.2;
+    min-width: 300px;
+    text-align: center; /* Centrage du texte */
+    max-width: 800px;
+    margin: 0 auto;
+}
 
 .section-title {
     font-family: 'Space Mono', monospace;
@@ -354,7 +362,8 @@ a, button, .btn {
     margin-bottom: 10px; position: relative; display: inline-block;
 }
 .section-title::after {
-    content: ''; position: absolute; left: 0; bottom: -10px;
+    content: ''; position: absolute; left: 50%; bottom: -10px;
+    transform: translateX(-50%); /* Centrage de la ligne sous le titre */
     width: 60px; height: 4px;
     background-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);
 }
@@ -370,7 +379,13 @@ a, button, .btn {
 
 .about-desc { color: #b0b0b0; font-size: 1.05rem; margin-bottom: 20px; line-height: 1.8; }
 
-.about-badges { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
+.about-badges {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrage des badges */
+}
 .badge {
     display: flex; align-items: center; gap: 10px; padding: 10px 20px;
     background: rgba(41, 121, 255, 0.05);
@@ -456,25 +471,6 @@ a, button, .btn {
     text-shadow: 0 0 10px rgba(41, 121, 255, 0.4);
 }
 
-.about-container {
-    justify-content: center;
-}
-
-.about-text {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-badges {
-    justify-content: center;
-}
-
-.section-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .about-text .buttons {
     justify-content: center;
     margin-top: 20px;
@@ -491,11 +487,9 @@ a, button, .btn {
     border-radius: 6px;
 }
 
-/* --- SECTION TIMELINE (GIT LOG) - AJOUTÉ --- */
+/* --- SECTION TIMELINE (GIT LOG) - CORRIGÉ BLEU --- */
 
-:root {
-    --neon-green: #10B981;
-}
+/* L'ancienne définition de --neon-green a été supprimée. */
 
 .tz-big-title {
     text-align: center;
@@ -510,7 +504,7 @@ a, button, .btn {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     max-width: 1200px;
-    margin: 0 auto 80px auto; /* Marge en bas ajoutée pour espacer du reste */
+    margin: 0 auto 80px auto;
 }
 
 .tz-code-block {
@@ -525,7 +519,7 @@ a, button, .btn {
 }
 
 .tz-code-block b {
-    color: var(--neon-green);
+    color: var(--neon-blue); /* CHANGÉ : Les mots en gras sont maintenant en bleu */
 }
 
 .tz-timeline-item {
@@ -545,7 +539,7 @@ a, button, .btn {
 
 .tz-line {
     width: 2px;
-    background-color: var(--neon-green);
+    background-color: var(--neon-blue); /* CHANGÉ : La ligne est maintenant en bleu */
     flex-grow: 1;
     min-height: 100%;
 }
@@ -554,11 +548,11 @@ a, button, .btn {
     width: 14px;
     height: 14px;
     background-color: var(--bg-dark);
-    border: 3px solid #ecfdf5;
+    border: 3px solid var(--neon-blue); /* CHANGÉ : La bordure est maintenant en bleu */
     border-radius: 50%;
     margin: 0;
     z-index: 2;
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 10px rgba(41, 121, 255, 0.4); /* CHANGÉ : L'ombre est maintenant en bleu */
 }
 
 .tz-content {
