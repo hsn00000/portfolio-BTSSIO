@@ -581,3 +581,137 @@ a, button, .btn {
         gap: 40px;
     }
 }
+
+/* --- SECTION PROJETS (STYLE TERMINAL) --- */
+.projects {
+    min-height: 100vh;
+    background-color: #0b0b0b;
+    padding: 100px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(41, 121, 255, 0.1);
+}
+
+.projects-container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.project-subtitle {
+    color: #666;
+    font-family: 'Space Mono', monospace; /* Comme le titre hacker */
+    font-size: 1rem;
+    margin-bottom: 50px;
+    display: block;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+/* CARTE STYLE TERMINAL */
+.terminal-card {
+    background-color: #050505;
+    border: 1px solid rgba(41, 121, 255, 0.3); /* Bordure bleue fine */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.terminal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(41, 121, 255, 0.15); /* Lueur bleue au survol */
+    border-color: var(--neon-blue);
+}
+
+/* En-tête du terminal (Barre grise en haut) */
+.terminal-header {
+    background: rgba(41, 121, 255, 0.1);
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(41, 121, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Les petits ronds (Mac OS style mais cyber) */
+.traffic-lights {
+    display: flex;
+    gap: 6px;
+}
+.light { width: 10px; height: 10px; border-radius: 50%; }
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+    opacity: 0.8;
+}
+
+/* Corps de la carte */
+.terminal-body {
+    padding: 25px;
+    text-align: left;
+}
+
+.p-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.p-desc {
+    font-family: 'Poppins', sans-serif;
+    color: #b0b0b0;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Badges (Comme dans la section A Propos) */
+.p-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.code-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+    background: rgba(41, 121, 255, 0.05);
+    padding: 5px 10px;
+    border: 1px solid rgba(41, 121, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* Bouton bas de carte */
+.btn-console {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 1px solid var(--neon-blue);
+    padding-bottom: 2px;
+    transition: 0.3s;
+}
+
+.btn-console:hover {
+    color: var(--neon-blue);
+    padding-right: 10px; /* Petit effet de mouvement */
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
